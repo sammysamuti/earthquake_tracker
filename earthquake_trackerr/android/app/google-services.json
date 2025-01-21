@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "573833299511",
+    "project_id": "earthquake-tracker-71856",
+    "storage_bucket": "earthquake-tracker-71856.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573833299511:android:cb0e87e78a6b5560b7a1b2",
+        "android_client_info": {
+          "package_name": "com.company.earthquake_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs6dtRKBt3KR7v_emxzrNu7HvRprHrlx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573833299511:android:4faceb4f28eeabbbb7a1b2",
+        "android_client_info": {
+          "package_name": "com.example.earthquake_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs6dtRKBt3KR7v_emxzrNu7HvRprHrlx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573833299511:android:53eeb1ea64e30d7ab7a1b2",
+        "android_client_info": {
+          "package_name": "com.example.earthquake_trackerr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs6dtRKBt3KR7v_emxzrNu7HvRprHrlx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
