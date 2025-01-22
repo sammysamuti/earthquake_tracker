@@ -110,9 +110,9 @@ class _MapPageState extends State<MapPage> {
     setState(() => _isLoading = true);
 
     try {
-    
+      // Replace with actual earthquake fetching logic based on time range
       final List<dynamic> data = await fetchEarthquakeData(
-          _latitude!, _longitude!, _timeRange!); 
+          _latitude!, _longitude!, _timeRange!); // Pass location and time range
 
       setState(() {
         _earthquakeData = data;
@@ -128,12 +128,12 @@ class _MapPageState extends State<MapPage> {
     }
   }
 
-
+  // Placeholder function to fetch earthquake data
   Future<List<dynamic>> fetchEarthquakeData(
       double latitude, double longitude, String timeRange) async {
-   
+    // Replace this with actual API call or Firebase fetching logic
     await Future.delayed(Duration(seconds: 2)); // Simulating network delay
-    return [];
+    return []; // Replace with actual earthquake data
   }
 
   @override
@@ -229,7 +229,7 @@ class _MapPageState extends State<MapPage> {
                         setState(() {
                           _timeRange = newValue;
                         });
-                        _fetchEarthquakes(); 
+                        _fetchEarthquakes(); // Fetch new data based on selected range
                       },
                       underline: Container(),
                       style: GoogleFonts.poppins(

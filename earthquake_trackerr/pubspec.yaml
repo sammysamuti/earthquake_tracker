@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
+  firebase_auth: ^5.4.0
   flutter_map: ^7.0.2
   latlong2: ^0.9.1
   intl: ^0.20.1
@@ -30,8 +31,14 @@ dependencies:
   flutter_animate: ^4.5.0
   google_maps_flutter: ^2.5.3
   vibration: ^3.0.0
+  smooth_page_indicator: ^1.2.0+3
+  carousel_slider: ^5.0.0
+  get: ^4.6.6
+  flutter_screenutil: ^5.9.3
+  get_storage: ^2.1.1
   flutter_native_splash: ^2.4.3
   flutter_launcher_icons: ^0.13.1
+
 
 dev_dependencies:
   flutter_test:
@@ -47,13 +54,17 @@ flutter:
 
 flutter_native_splash:
   color: "#0000FF"
-  image: assets/images/logo.png
+  image: assets/images/earthquake.png
   android: true
   ios: true
+  android_gravity: fill
+  ios_content_mode: scaleToFill
+
+
 
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/images/logo.png"
+  image_path: "assets/images/earthquake.png"
   min_sdk_android: 24
   remove_alpha_ios: true

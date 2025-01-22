@@ -1,14 +1,18 @@
+import 'package:earthquake_trackerr/auth/login.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:geolocator/geolocator.dart';
-import 'dart:convert'; 
-import 'package:earthquake_trackerr/service/earthquake_service.dart'; 
-import 'package:url_launcher/url_launcher.dart'; 
+import 'dart:convert';
+import 'package:earthquake_trackerr/service/earthquake_service.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:earthquake_trackerr/pages/earthquake_detail_page.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
+  static String route = 'home-page';
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -157,15 +161,34 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
           }
         }
       } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Error fetching earthquake data')));
+        Get.snackbar(
+          'Error:',
+          'Error fetching earthquake data',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.blue,
+          colorText: Colors.white,
+          margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+        );
       } finally {
         setState(() => _isLoading = false);
       }
     } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('Please fill in all fields.')));
+      Get.snackbar(
+        'Warning:',
+        'Check your internet connection & wether your location is enabled and wait for a moment!',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.blue,
+        colorText: Colors.white,
+       margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+      );
     }
+  }
+
+  void _logout() async {
+    final box = GetStorage();
+    await box.remove('user_email');
+
+    Get.offAllNamed(LoginPage.route);
   }
 
   @override
@@ -189,15 +212,47 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 40),
-                Text(
-                  'Earthquake\nTracker',
-                  style: GoogleFonts.poppins(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    height: 1.2,
-                  ),
-                ).animate().fadeIn().slideX(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Earthquake',
+                          style: GoogleFonts.poppins(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            height: 1.2,
+                          ),
+                        ).animate().fadeIn().slideX(),
+                        Text(
+                          'Tracker',
+                          style: GoogleFonts.poppins(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            height: 1.2,
+                          ),
+                        ).animate().fadeIn().slideX(),
+                      ],
+                    ),
+                    SizedBox(width: 10),
+                    IconButton(
+                      onPressed: () {
+                        _logout();
+                      },
+                      icon: Image.asset(
+                        'assets/images/out.png',
+                        width: 40,
+                        height: 40,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
                 SizedBox(height: 30),
                 Container(
                   decoration: BoxDecoration(
